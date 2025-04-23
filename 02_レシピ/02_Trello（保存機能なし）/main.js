@@ -10,7 +10,16 @@ addButton.onclick = () => {
   inputElement.value = ""
 }
 
-//カードを作成する処理
+inputElement.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    //カードを作成する処理
+    const card = createCard(inputElement.value)
+    container.append(card)
+    //入力欄を空にする
+    inputElement.value = ""
+  }
+})
+
 const createCard = (text) => {
   //カードの枠を作る
   const card = document.createElement("div")
@@ -24,7 +33,6 @@ const createCard = (text) => {
   //削除ボタンを作る
   const deleteButton = document.createElement("div")
   deleteButton.className = "delete"
-
   deleteButton.onclick = () => {
     card.remove()
   }
