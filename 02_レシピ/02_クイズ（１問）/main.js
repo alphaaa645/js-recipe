@@ -27,6 +27,20 @@ const quiz = {
   ],
 }
 
+//選択肢のボタンの作成
+
+const choicesContainer = document.getElementById("choices-container")
+for (let i = 0; i < quiz.choices.length; i++) {
+  const choiceButton = document.createElement("button")
+  choiceButton.textContent = quiz.choices[i].text
+  choicesContainer.append(choiceButton)
+  choiceButton.onclick = () => {
+    feedback.textContent = quiz.choices[i].feedback
+  }
+}
+
+// 選択肢の数分（quizのchoicesの数）だけボタンを表示するには、どんなJavascriptのコードを書けばよい？
+
 //クイズの表示
 const reloadQuiz = () => {
   //問題文を表示
